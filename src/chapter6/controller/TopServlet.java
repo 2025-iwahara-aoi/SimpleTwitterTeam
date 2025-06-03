@@ -33,6 +33,7 @@ public class TopServlet extends HttpServlet {
 		String radiobutton = request.getParameter("radiobutton");
 		String userId = request.getParameter("user_id");
 		request.setAttribute("startFrom", true);
+		String banana = request.getParameter("start");
 		String start = request.getParameter("start");
 		String end = request.getParameter("end");
 		List<UserMessage> messages = new MessageService().select(userId, start, end, searchWord, radiobutton);
@@ -45,6 +46,7 @@ public class TopServlet extends HttpServlet {
 		request.setAttribute("start", start);
 		request.setAttribute("end", end);
 		request.setAttribute("messages", messages);
+		request.setAttribute("messages", banana);
 		request.setAttribute("comments", comments);
 		request.setAttribute("searchWord", request.getParameter("word"));
 		request.setAttribute("isShowMessageForm", isShowMessageForm);

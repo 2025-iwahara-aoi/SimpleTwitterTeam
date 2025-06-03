@@ -42,8 +42,9 @@ public class TopServlet extends HttpServlet {
 		}
 
 		List<UserComment> comments = new CommentService().select();
-		request.setAttribute("start", start);
 		request.setAttribute("end", end);
+		request.setAttribute("start", start);
+
 		request.setAttribute("messages", messages);
 		request.setAttribute("comments", comments);
 		request.setAttribute("searchWord", request.getParameter("word"));

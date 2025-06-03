@@ -62,7 +62,9 @@ public class MessageService {
             }
 
             List<UserMessage> messages = new UserMessageDao().select(connection, id, start, end, searchWord, likeSearch, LIMIT_NUM);
+
             return messages;
+
         } catch (RuntimeException e) {
             rollback(connection);
             throw e;

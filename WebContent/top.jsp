@@ -1,16 +1,20 @@
-<%@page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page isELIgnored="false"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/style.css" rel="stylesheet" type="text/css">
-        <title>簡易Twitter</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<title>簡易Twitter</title>
+	<link href="css/style.css" rel="stylesheet" type="text/css">
     </head>
     <body>
+
         <div class="main-contents">
             <div class="header">
 		    <c:if test="${ empty loginUser }">
@@ -49,16 +53,19 @@
 			<input type="date" id="end" name="end" value="${end}">
 			<input type="submit" value="絞り込み">
 		</form>
-		<div class = "search"> 
-	<form action = "./" action = "get">
-		つぶやき：
-		<input type = "text" name ="word" value = "${searchWord}"/>
-		<input type="radio" name="radiobutton" value="contain" checked="checked">
-		を含む
-		<input type= "submit" value = "検索">
-	</form>
-</div>
+		
 		<br />
+		<div class = "search">
+			<form action = "./" action = "get">
+				つぶやき：
+				<input type = "text" name ="word" value = "${searchWord}"/>
+				<input type="radio" name="radiobutton" value="startFrom" checked="checked">
+				から始まる
+				<input type="radio" name="radiobutton" value="contain" checked="checked">
+		を含む
+				<input type= "submit" value = "検索">
+			</form>
+		</div>
 		<div class="form-area">
 		    <c:if test="${ isShowMessageForm }">
 		        <form action="message" method="post">
